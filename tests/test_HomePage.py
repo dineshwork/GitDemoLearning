@@ -24,6 +24,7 @@ class TestHomePage(BaseClass):
         self.driver.refresh()
         print(message)
         print("Yay all is good maga")
+        print("Yay all is very good maga")
 
     @pytest.fixture(params=HomePageData.getTestData("Testcase2"))
     def getData(self, request):
