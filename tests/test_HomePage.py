@@ -20,8 +20,9 @@ class TestHomePage(BaseClass):
         homePage.submitForm().click()
         message = homePage.successText().text
 
-        assert "success" in message
+        assert "successs" in message
         self.driver.refresh()
+        print(message)
 
     @pytest.fixture(params=HomePageData.getTestData("Testcase2"))
     def getData(self, request):
