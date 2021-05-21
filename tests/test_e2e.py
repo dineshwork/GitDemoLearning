@@ -39,11 +39,7 @@ class TestOne(BaseClass):
 
         stext = confirmPage.confirmText().text
         log.info("Text received from application is "+stext)
-<<<<<<< HEAD
         assert "Success!Very Thank you!" in stext
         print(stext)
-=======
         assert "Success! Thank you!" in stext
-
->>>>>>> 5937eb2a156e46e3dc9eeaf73af4f0ae3a1feb3e
         self.driver.get_screenshot_as_file("screen.png")
