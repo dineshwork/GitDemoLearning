@@ -41,5 +41,7 @@ class TestOne(BaseClass):
         log.info("Text received from application is "+stext)
         assert "Success!Very Thank you!" in stext
         print(stext)
+        print("Dinesh Kannan")
+        print("din@abc.com")
         assert "Success! Thank you!" in stext
         self.driver.get_screenshot_as_file("screen.png")
