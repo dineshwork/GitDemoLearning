@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="23.553" timestamp="2021-05-20T12:43:13.967231" hostname="PTWB-IT-CPU-557"><testcase classname="test_HomePage.TestHomePage" name="test_formSubmission[getData0]" time="7.671" /><testcase classname="test_HomePage.TestHomePage" name="test_formSubmission[getData1]" time="1.597" /><testcase classname="test_e2e.TestOne" name="test_e2e" time="14.185"><failure message="AssertionError: assert 'Success! Very Thank you!' in '×\nSuccess! Thank you! Your order will be delivered in next few weeks :-).'">self = &lt;tests.test_e2e.TestOne object at 0x000002B0E588FD90&gt;
+
+    def test_e2e(self):
+        log = self.getLogger()
+        homePage = HomePage(self.driver)
+        checkOutPage = homePage.shopItem()
+    
+        cards = checkOutPage.productName()
+    
+        for prod in cards:
+            name = prod.text
+            print(name)
+            log.info(name)
+            if name == "Blackberry":
+                checkOutPage.addtoCart().click()
+    
+        checkOutPage.checkOutone().click()
+        confirmPage = checkOutPage.checkOuttwo()
+        log.info("Entering Country name as India")
+        confirmPage.purchaConf().send_keys("Ind")
+        #wait = WebDriverWait(self.driver, 7)
+    
+        self.verifyLinkPresence("India")
+        confirmPage.linkText().click()
+    
+        confirmPage.termsCondition().click()
+        confirmPage.purchasConfirm().click()
+    
+        stext = confirmPage.confirmText().text
+        log.info("Text received from application is "+stext)
+&gt;       assert "Success! Very Thank you!" in stext
+E       AssertionError: assert 'Success! Very Thank you!' in '×\nSuccess! Thank you! Your order will be delivered in next few weeks :-).'
+
+test_e2e.py:42: AssertionError</failure></testcase></testsuite></testsuites>
